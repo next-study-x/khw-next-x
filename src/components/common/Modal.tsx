@@ -9,10 +9,10 @@ import IconClose from "../../../public/icons/close.svg";
 interface ModalProps {
   children?: ReactNode;
   title?: string;
-  onClose?: () => void;
+  bodySize?: 364 | 440;
 }
 
-const Modal: React.FC<ModalProps> = ({ children, title, onClose }) => {
+const Modal: React.FC<ModalProps> = ({ children, title, bodySize }) => {
   const router = useRouter();
 
   const handleCloseModal = () => {
@@ -33,7 +33,7 @@ const Modal: React.FC<ModalProps> = ({ children, title, onClose }) => {
             <IconClose />
           </CloseWrapper>
         </ModalHeader>
-        <ModalBody>
+        <ModalBody bodySize={bodySize}>
           <h1>{title}</h1>
           {children}
         </ModalBody>
@@ -42,7 +42,7 @@ const Modal: React.FC<ModalProps> = ({ children, title, onClose }) => {
   );
 };
 
-const StyledModalBg = styled.div<ModalProps>`
+const StyledModalBg = styled.div`
   position: fixed;
   left: 0;
   right: 0;
@@ -51,7 +51,7 @@ const StyledModalBg = styled.div<ModalProps>`
   background-color: rgba(91, 112, 131, 0.4);
 `;
 
-const StyledModal = styled.div<ModalProps>`
+const StyledModal = styled.div`
   width: 600px;
   height: 650px;
   max-width: 80vw;
@@ -107,7 +107,7 @@ const ModalHeader = styled.div`
   align-items: center;
 `;
 
-const ModalBody = styled.div`
+const ModalBody = styled.div<ModalProps>`
   max-width: 364px;
   padding-left: 32px;
   padding-right: 32px;
