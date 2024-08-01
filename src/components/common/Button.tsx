@@ -2,17 +2,25 @@ import styled from "@emotion/styled";
 import React, { ReactNode } from "react";
 
 interface ButtonProps {
-  type?: string;
+  type?: "default" | "fill" | "border" | "whiteBorder";
   children: ReactNode;
+  onClick?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, type = "default" }) => {
+const Button: React.FC<ButtonProps> = ({
+  children,
+  type = "default",
+  onClick,
+}) => {
   return (
-    <>
+    <div onClick={onClick}>
       {type === "default" && <DefaultButton>{children}</DefaultButton>}
       {type === "fill" && <FillButton>{children}</FillButton>}
       {type === "border" && <BorderButton>{children}</BorderButton>}
-    </>
+      {type === "whiteBorder" && (
+        <WhiteBorderButton>{children}</WhiteBorderButton>
+      )}
+    </div>
   );
 };
 
@@ -62,6 +70,16 @@ const BorderButton = styled(DefaultButton)<ButtonProps>`
 
   &:hover {
     background-color: rgb(83, 155, 240, 0.1);
+  }
+`;
+
+const WhiteBorderButton = styled(DefaultButton)<ButtonProps>`
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid rgb(83, 100, 113);
+
+  &:hover {
+    background-color: rgba(239, 243, 244, 0.1);
   }
 `;
 

@@ -7,12 +7,17 @@ export const metadata: Metadata = {
 
 export default function Layout({
   children,
-}: Readonly<{
+  modal,
+}: {
   children: React.ReactNode;
-}>) {
+  modal: React.ReactNode;
+}) {
   return (
     <>
-      <main>{children}</main>
+      <main>
+        {children}
+        {modal}
+      </main>
     </>
   );
 }

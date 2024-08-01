@@ -2,11 +2,18 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import styled from "@emotion/styled";
 import Button from "@/components/common/Button";
 import { START_DATA } from "@/constants/start_data";
 
 const ContentContainer = () => {
+  const router = useRouter();
+
+  const handlePushRouter = (path: string) => {
+    router.push(path);
+  };
+
   return (
     <ContentWrapper>
       <h1>지금 일어나고 있는 일</h1>
@@ -29,7 +36,7 @@ const ContentContainer = () => {
           <span>또는</span>
           <Line />
         </DividerGroup>
-        <Button type="fill">
+        <Button type="fill" onClick={() => handlePushRouter("/i/flow/signup")}>
           <span>계정 만들기</span>
         </Button>
         <Notice>
@@ -49,7 +56,10 @@ const ContentContainer = () => {
         </Notice>
         <AlreadyMember>
           <h4>이미 트위터에 가입하셨나요?</h4>
-          <Button type="border">
+          <Button
+            type="border"
+            onClick={() => handlePushRouter("/i/flow/login")}
+          >
             <span>로그인</span>
           </Button>
         </AlreadyMember>
@@ -119,6 +129,7 @@ const Notice = styled.div`
     color: rgb(29, 155, 240);
   }
 `;
+
 const AlreadyMember = styled.div`
   margin-top: 40px;
   h4 {

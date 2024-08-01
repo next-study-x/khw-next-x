@@ -12,7 +12,7 @@ const FooterContainer = () => {
       {Object.keys(START_DATA).map((keys) => {
         const data = START_DATA[keys as StartDataKeys];
         return (
-          <Link href={data.link} target="_blank">
+          <Link key={keys} href={data.link} target="_blank">
             {data.name}
           </Link>
         );
