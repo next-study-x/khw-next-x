@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Footer from "@/components/start/Footer";
 
 export const metadata: Metadata = {
   title: "start layout",
@@ -14,7 +13,6 @@ export default function Layout({
   return (
     <>
       <main>{children}</main>
-      <Footer />
     </>
   );
 }
