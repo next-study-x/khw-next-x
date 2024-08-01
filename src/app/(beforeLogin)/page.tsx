@@ -1,9 +1,9 @@
 "use client";
 
 import styled from "@emotion/styled";
-import LogoContainer from "@/container/start/LogoContainer";
-import ContentContainer from "@/container/start/ContentContainer";
-import FooterContainer from "@/container/start/FooterContainer";
+import LogoContainer from "@/containers/start/LogoContainer";
+import ContentContainer from "@/containers/start/ContentContainer";
+import FooterContainer from "@/containers/start/FooterContainer";
 
 export default function Home() {
   return (
