@@ -13,16 +13,20 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
 }) => {
   return (
-    <div onClick={onClick}>
+    <Box onClick={onClick}>
       {type === "default" && <DefaultButton>{children}</DefaultButton>}
       {type === "fill" && <FillButton>{children}</FillButton>}
       {type === "border" && <BorderButton>{children}</BorderButton>}
       {type === "whiteBorder" && (
         <WhiteBorderButton>{children}</WhiteBorderButton>
       )}
-    </div>
+    </Box>
   );
 };
+
+const Box = styled.div`
+  width: 100%;
+`;
 
 const DefaultButton = styled.button<ButtonProps>`
   max-width: 100%;
