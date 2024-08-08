@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import styled from "@emotion/styled";
 import Modal from "@/components/common/Modal";
 import Input from "@/components/common/Input";
@@ -9,6 +10,12 @@ import Button from "@/components/common/Button";
 import { START_DATA } from "@/constants/start_data";
 
 export default function Page() {
+  const router = useRouter();
+
+  const handlePushRouter = (path: string) => {
+    router.replace(path);
+  };
+
   return (
     <Modal title="X 가입하기">
       <ButtonGroup>
@@ -33,7 +40,10 @@ export default function Page() {
         <Button type="default">
           <span>다음</span>
         </Button>
-        <Button type="whiteBorder">
+        <Button
+          type="whiteBorder"
+          onClick={() => handlePushRouter("/i/flow/password_reset")}
+        >
           <span>비밀번호를 잊으셨나요?</span>
         </Button>
       </ButtonGroup>

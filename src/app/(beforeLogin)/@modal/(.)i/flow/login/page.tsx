@@ -13,7 +13,7 @@ export default function Page() {
   const router = useRouter();
 
   const handlePushRouter = (path: string) => {
-    router.push(path);
+    router.replace(path);
   };
 
   return (
