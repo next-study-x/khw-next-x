@@ -7,15 +7,20 @@ import Button from "@/components/common/Button";
 
 export default function Page() {
   return (
-    <Modal title="내 X 계정 찾기" bodySize="md">
+    <Modal
+      title="내 X 계정 찾기"
+      bodySize="md"
+      footerChildren={
+        <Button>
+          <span>다음</span>
+        </Button>
+      }
+    >
       <SubTitle>
         비밀번호를 변경하려면 계정에 연결된 이메일, 전화번호 또는 사용자
         아이디를 입력해 주세요.
       </SubTitle>
       <Input label="이메일, 전화번호 또는 사용자 아이디" />
-      <Button>
-        <span>다음</span>
-      </Button>
     </Modal>
   );
 }

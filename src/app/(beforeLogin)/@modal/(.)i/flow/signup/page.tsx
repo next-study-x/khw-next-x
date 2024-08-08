@@ -1,31 +1,31 @@
 "use client";
 
-import Link from "next/link";
 import styled from "@emotion/styled";
 import Modal from "@/components/common/Modal";
 import Input from "@/components/common/Input";
 import Button from "@/components/common/Button";
-import { useState } from "react";
 import Select from "@/components/common/Select";
 
 const ACCOUNT_TYPE = {
   email: "이메일",
   phone: "휴대폰",
 };
+
 export default function Page() {
-  const [accountTypeToggle, setAccountTypeToggle] = useState(
-    ACCOUNT_TYPE.email
-  );
   return (
-    <Modal title="계정을 생성하세요" bodySize="md">
+    <Modal
+      title="계정을 생성하세요"
+      bodySize="md"
+      footerChildren={
+        <Button>
+          <span>다음</span>
+        </Button>
+      }
+    >
       <FlexBox>
         <Input label="이름" />
-        <Input label={ACCOUNT_TYPE.email} />
-        <ChangeAccountType
-          onClick={() => setAccountTypeToggle(ACCOUNT_TYPE.email)}
-        >
-          대신 {ACCOUNT_TYPE.email} 사용하기
-        </ChangeAccountType>
+        <Input label="이메일" />
+        <ChangeAccountType>대신 이메일 사용하기</ChangeAccountType>
       </FlexBox>
       <BirthInfoBox>
         <h3>생년월일</h3>
@@ -39,9 +39,6 @@ export default function Page() {
           <Select label="년" type="year" />
         </SelectBox>
       </BirthInfoBox>
-      <Button>
-        <span>다음</span>
-      </Button>
     </Modal>
   );
 }

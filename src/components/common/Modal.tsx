@@ -6,11 +6,17 @@ import IconClose from "../../../public/icons/close.svg";
 
 interface ModalProps {
   children?: ReactNode;
+  footerChildren?: ReactNode;
   title?: string;
   bodySize?: "sm" | "md";
 }
 
-const Modal: React.FC<ModalProps> = ({ children, title, bodySize = "sm" }) => {
+const Modal: React.FC<ModalProps> = ({
+  children,
+  footerChildren,
+  title,
+  bodySize = "sm",
+}) => {
   const router = useRouter();
 
   const handleCloseModal = () => {
@@ -35,6 +41,9 @@ const Modal: React.FC<ModalProps> = ({ children, title, bodySize = "sm" }) => {
           <h1>{title}</h1>
           {children}
         </ModalBody>
+        {footerChildren && (
+          <ModalFooter bodySize={bodySize}>{footerChildren}</ModalFooter>
+        )}
       </StyledModal>
     </StyledModalBg>
   );
@@ -56,6 +65,10 @@ const StyledModal = styled.div`
   max-height: 90vh;
   padding-left: 16px;
   padding-right: 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 
   position: absolute;
   left: 50%;
@@ -110,7 +123,7 @@ const ModalBody = styled.div<ModalProps>`
   padding-left: 32px;
   padding-right: 32px;
   padding-bottom: 48px;
-  margin: auto;
+  margin: 0 auto;
 
   h1 {
     margin-top: 20px;
@@ -121,6 +134,19 @@ const ModalBody = styled.div<ModalProps>`
     margin-bottom: 12px;
     margin-top: 12px;
   }
+`;
+
+const ModalFooter = styled.div<ModalProps>`
+  max-width: ${(props) => (props.bodySize === "sm" ? "364px" : "440px")};
+  width: 100%;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-bottom: 24px;
+  margin: 0 auto;
+
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
 `;
 
 export default Modal;

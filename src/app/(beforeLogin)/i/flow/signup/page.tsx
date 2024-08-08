@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import styled from "@emotion/styled";
 import Modal from "@/components/common/Modal";
 import Input from "@/components/common/Input";
@@ -17,7 +16,15 @@ export default function Page() {
     ACCOUNT_TYPE.email
   );
   return (
-    <Modal title="계정을 생성하세요" bodySize="md">
+    <Modal
+      title="계정을 생성하세요"
+      bodySize="md"
+      footerChildren={
+        <Button>
+          <span>다음</span>
+        </Button>
+      }
+    >
       <FlexBox>
         <Input label="이름" />
         <Input label={ACCOUNT_TYPE.email} />
@@ -39,9 +46,6 @@ export default function Page() {
           <Select label="년" type="year" />
         </SelectBox>
       </BirthInfoBox>
-      <Button>
-        <span>다음</span>
-      </Button>
     </Modal>
   );
 }
