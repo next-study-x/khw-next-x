@@ -1,17 +1,14 @@
-import styled from "@emotion/styled";
 import TextField from "@mui/material/TextField";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-interface InputProps {}
+interface InputProps {
+  label: string;
+}
 
-const Input: React.FC<InputProps> = ({}) => {
+const Input: React.FC<InputProps> = ({ label }) => {
   return (
     <ThemeProvider theme={customTheme()}>
-      <TextField
-        id="filled-basic"
-        label="휴대폰 번호, 이메일 주소 또는 사용자 아이디"
-        variant="filled"
-      />
+      <TextField id="filled-basic" label={label} variant="filled" />
     </ThemeProvider>
   );
 };
@@ -19,6 +16,15 @@ const Input: React.FC<InputProps> = ({}) => {
 const customTheme = () =>
   createTheme({
     components: {
+      // input 최상위
+      MuiTextField: {
+        styleOverrides: {
+          root: {
+            width: "100%",
+          },
+        },
+      },
+      // label style
       MuiFormLabel: {
         styleOverrides: {
           root: {
@@ -29,12 +35,13 @@ const customTheme = () =>
           },
         },
       },
+      // fill type input style
       MuiFilledInput: {
         styleOverrides: {
           root: {
             "&": {
+              width: "100%",
               height: "56px",
-              width: "300px",
               border: "2px solid rgb(51, 54, 57)",
               borderRadius: "4px",
               color: "#fff",

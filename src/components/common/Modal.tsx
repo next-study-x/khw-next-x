@@ -7,10 +7,10 @@ import IconClose from "../../../public/icons/close.svg";
 interface ModalProps {
   children?: ReactNode;
   title?: string;
-  bodySize?: 364 | 440;
+  bodySize?: "sm" | "md";
 }
 
-const Modal: React.FC<ModalProps> = ({ children, title, bodySize }) => {
+const Modal: React.FC<ModalProps> = ({ children, title, bodySize = "sm" }) => {
   const router = useRouter();
 
   const handleCloseModal = () => {
@@ -106,15 +106,15 @@ const ModalHeader = styled.div`
 `;
 
 const ModalBody = styled.div<ModalProps>`
-  max-width: 364px;
+  max-width: ${(props) => (props.bodySize === "sm" ? "364px" : "440px")};
   padding-left: 32px;
   padding-right: 32px;
   padding-bottom: 48px;
   margin: auto;
 
   h1 {
-    margin-bottom: 20px;
     margin-top: 20px;
+    margin-bottom: 12px;
   }
 
   button {

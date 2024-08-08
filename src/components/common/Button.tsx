@@ -25,8 +25,8 @@ const Button: React.FC<ButtonProps> = ({
 };
 
 const DefaultButton = styled.button<ButtonProps>`
-  max-width: 380px;
-  width: 300px;
+  max-width: 100%;
+  width: 100%;
   height: 40px;
   min-height: 36px;
 
