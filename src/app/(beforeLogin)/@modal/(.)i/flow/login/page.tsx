@@ -37,7 +37,7 @@ export default function Page() {
           <Line />
         </DividerGroup>
         <Input label="휴대폰 번호, 이메일 주소 또는 사용자 아이디" />
-        <Button type="default">
+        <Button type="default" onClick={() => handlePushRouter("/home")}>
           <span>다음</span>
         </Button>
         <Button
