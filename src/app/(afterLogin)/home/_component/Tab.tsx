@@ -47,6 +47,7 @@ const StyledTab = styled.div`
   display: flex;
   background-color: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(12px);
+  border: 1px solid rgb(47, 51, 54);
 `;
 
 const TabItem = styled.div<TabProps>`
@@ -69,7 +70,7 @@ const TabItem = styled.div<TabProps>`
 
 const TabActiveBar = styled.div<TabProps>`
   position: absolute;
-  top: 53px;
+  top: 50px;
   right: 115px;
   left: ${({ tab }) => (tab === "rec" ? "115px" : "auto")};
   right: ${({ tab }) => (tab === "fol" ? "115px" : "auto")};
