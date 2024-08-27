@@ -1,19 +1,23 @@
 "use client";
 
-import PostContent from "@/components/home/PostContent";
+import Tab from "@/app/(afterLogin)/home/_component/Tab";
+import TabProvider from "@/app/(afterLogin)/home/_component/TabProvider";
+import PostContent from "@/app/(afterLogin)/home/_component/PostContent";
 import styled from "@emotion/styled";
-import Image from "next/image";
 
 const BodyContainer = () => {
   return (
     <BodyWrapper>
-      <PostContent />
-      <PostContent /> 
-      <PostContent /> 
-      <PostContent /> 
-      <PostContent />
-      <PostContent /> 
-      <PostContent />
+      <TabProvider>
+        <Tab />
+        <PostContent />
+        <PostContent />
+        <PostContent />
+        <PostContent />
+        <PostContent />
+        <PostContent />
+        <PostContent />
+      </TabProvider>
     </BodyWrapper>
   );
 };
@@ -21,9 +25,10 @@ const BodyContainer = () => {
 const BodyWrapper = styled.div`
   max-width: 600px;
   width: 100%;
-  /* height: 100%; */
   border-left: 1px solid rgb(47, 51, 54);
   border-right: 1px solid rgb(47, 51, 54);
+  margin-top: 53px;
+
 `;
 
 export default BodyContainer;
