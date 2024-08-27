@@ -1,6 +1,6 @@
 "use client";
 
-import MenuTab from "@/components/home/MenuTab";
+import MenuTab from "@/app/(afterLogin)/home/_component/MenuTab";
 import { HOME_DATA } from "@/constants/home_data";
 
 import styled from "@emotion/styled";
