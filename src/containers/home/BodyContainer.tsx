@@ -4,12 +4,14 @@ import Tab from "@/app/(afterLogin)/home/_component/Tab";
 import TabProvider from "@/app/(afterLogin)/home/_component/TabProvider";
 import PostContent from "@/app/(afterLogin)/home/_component/PostContent";
 import styled from "@emotion/styled";
+import PostForm from "@/app/(afterLogin)/home/_component/PostForm";
 
 const BodyContainer = () => {
   return (
     <BodyWrapper>
       <TabProvider>
         <Tab />
+        <PostForm/>
         <PostContent />
         <PostContent />
         <PostContent />
