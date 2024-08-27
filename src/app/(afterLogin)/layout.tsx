@@ -1,18 +1,21 @@
 "use client";
 
-import BodyContainer from "@/containers/home/BodyContainer";
 import HeaderContainer from "@/containers/home/HeaderContainer";
 import SearchContainer from "@/containers/home/SearchContainer";
 import styled from "@emotion/styled";
 
-export default function Home() {
+export default function AfterLoginLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <LayoutStyled>
       <HeaderFixed>
         <HeaderContainer />
       </HeaderFixed>
       <BodyStyled>
-        <BodyContainer />
+        <main>{children}</main>
         <SearchContainer />
       </BodyStyled>
     </LayoutStyled>
@@ -39,9 +42,3 @@ const BodyStyled = styled.main`
   display: flex;
   justify-content: space-between;
 `;
-
-// const SearchSticky = styled.div`
-//   position: relative;
-//   width: 350px;
-//   height: 100vh;
-// `;
