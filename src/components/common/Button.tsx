@@ -4,21 +4,25 @@ import React, { ReactNode } from "react";
 interface ButtonProps {
   type?: "default" | "fill" | "border" | "whiteBorder";
   children: ReactNode;
+  sx?: any;
   onClick?: () => void;
 }
 
 const Button: React.FC<ButtonProps> = ({
   children,
   type = "default",
+  sx,
   onClick,
 }) => {
   return (
     <Box onClick={onClick}>
-      {type === "default" && <DefaultButton>{children}</DefaultButton>}
-      {type === "fill" && <FillButton>{children}</FillButton>}
-      {type === "border" && <BorderButton>{children}</BorderButton>}
+      {type === "default" && (
+        <DefaultButton style={sx}>{children}</DefaultButton>
+      )}
+      {type === "fill" && <FillButton style={sx}>{children}</FillButton>}
+      {type === "border" && <BorderButton style={sx}>{children}</BorderButton>}
       {type === "whiteBorder" && (
-        <WhiteBorderButton>{children}</WhiteBorderButton>
+        <WhiteBorderButton style={sx}>{children}</WhiteBorderButton>
       )}
     </Box>
   );
