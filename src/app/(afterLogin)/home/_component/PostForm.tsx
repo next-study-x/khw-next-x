@@ -2,10 +2,21 @@
 
 import Button from "@/components/common/Button";
 import styled from "@emotion/styled";
-import ImageIcon from "@mui/icons-material/Image";
+import BrokenImageOutlinedIcon from "@mui/icons-material/BrokenImageOutlined";
+import GifBoxOutlinedIcon from "@mui/icons-material/GifBoxOutlined";
+import ChecklistOutlinedIcon from "@mui/icons-material/ChecklistOutlined";
+import SentimentSatisfiedAltOutlinedIcon from "@mui/icons-material/SentimentSatisfiedAltOutlined";
+import PendingActionsOutlinedIcon from "@mui/icons-material/PendingActionsOutlined";
+import { useRef } from "react";
 
 export default function PostForm() {
   const onSubmit = () => {};
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleClickImageUploader = () => {
+    if (!inputRef.current) return;
+    inputRef?.current.click();
+  };
 
   return (
     <StyledPostForm onSubmit={onSubmit}>
@@ -13,9 +24,20 @@ export default function PostForm() {
       <PostSection>
         <textarea placeholder="What is happening?"></textarea>
         <ButtonGroup>
-          <ImageIcon></ImageIcon>
+          <IconGroup>
+            <span onClick={handleClickImageUploader}>
+              <BrokenImageOutlinedIcon />
+              <input type="file" ref={inputRef} />
+            </span>
+            <GifBoxOutlinedIcon />
+            <ChecklistOutlinedIcon />
+            <SentimentSatisfiedAltOutlinedIcon />
+            <PendingActionsOutlinedIcon />
+          </IconGroup>
           <ButtonWrapper>
-            <Button type="fill">Post</Button>
+            <Button type="fill" sx={{ height: "36px" }}>
+              Post
+            </Button>
           </ButtonWrapper>
         </ButtonGroup>
       </PostSection>
@@ -46,6 +68,7 @@ const PostSection = styled.div`
     border: none;
     font-size: 20px;
     color: rgb(231, 233, 234);
+    resize: none;
 
     &:focus {
       outline: none;
@@ -59,9 +82,24 @@ const ButtonGroup = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid rgb(47, 51, 54);
 
   svg {
     color: rgb(29, 155, 240);
+  }
+`;
+
+const IconGroup = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  span {
+    cursor: pointer;
+    input {
+      display: none;
+    }
   }
 `;
 
