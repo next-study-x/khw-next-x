@@ -1,11 +1,13 @@
 "use client";
 
-import SearchBar from "@/components/common/SearchBar";
-import PostContent from "@/app/(afterLogin)/home/_component/PostContent";
-import TrendsSection from "@/app/(afterLogin)/home/_component/TrendsSection";
+import { usePathname } from "next/navigation";
 import styled from "@emotion/styled";
+import SearchBar from "@/components/common/SearchBar";
+import TrendsSection from "@/app/(afterLogin)/home/_component/TrendsSection";
+import FollowRecommend from "@/app/(afterLogin)/home/_component/FollowRecommend";
 
 const SearchContainer = () => {
+  const pathname = usePathname()
   return (
     <SearchContainerWrapper>
       <SearchWrapper>
@@ -14,7 +16,7 @@ const SearchContainer = () => {
 
       <ContentsWrapper>
       <TrendsSection/>
-      <TrendsSection/>
+      <FollowRecommend/>
       </ContentsWrapper>
     </SearchContainerWrapper>
   );
