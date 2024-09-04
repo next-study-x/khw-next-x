@@ -7,11 +7,25 @@ import GifBoxOutlinedIcon from "@mui/icons-material/GifBoxOutlined";
 import ChecklistOutlinedIcon from "@mui/icons-material/ChecklistOutlined";
 import SentimentSatisfiedAltOutlinedIcon from "@mui/icons-material/SentimentSatisfiedAltOutlined";
 import PendingActionsOutlinedIcon from "@mui/icons-material/PendingActionsOutlined";
-import { useRef } from "react";
+import {
+  ChangeEvent,
+  ChangeEventHandler,
+  FormEventHandler,
+  useRef,
+  useState,
+} from "react";
 
 export default function PostForm() {
-  const onSubmit = () => {};
   const inputRef = useRef<HTMLInputElement>(null);
+  const [content, setContent] = useState('');
+
+  const onChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
+    setContent(e.target.value);
+  };
+
+  const onSubmit: FormEventHandler = (e) => {
+    e.preventDefault();
+  };
 
   const handleClickImageUploader = () => {
     if (!inputRef.current) return;
@@ -20,9 +34,13 @@ export default function PostForm() {
 
   return (
     <StyledPostForm onSubmit={onSubmit}>
-      <UserImage></UserImage>
+      <UserImage />
       <PostSection>
-        <textarea placeholder="What is happening?"></textarea>
+        <textarea
+          value={content}
+          placeholder="What is happening?"
+          onChange={onChange}
+        />
         <ButtonGroup>
           <IconGroup>
             <span onClick={handleClickImageUploader}>
@@ -73,6 +91,10 @@ const PostSection = styled.div`
     &:focus {
       outline: none;
       border: none;
+    }
+
+    &::placeholder {
+      font-family: Malgun Gothic;
     }
   }
 `;
