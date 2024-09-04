@@ -4,7 +4,7 @@ import React, { ReactNode } from "react";
 interface ButtonProps {
   type?: "default" | "fill" | "border" | "whiteBorder";
   children: ReactNode;
-  sx?: any;
+  sx?: React.CSSProperties;
   onClick?: () => void;
 }
 
