@@ -1,22 +1,43 @@
 import React from "react";
 import Image from "next/image";
 import styled from "@emotion/styled";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+import 'dayjs/locale/ko'
+import ActionButtons from "./ActionButtons";
+
+dayjs.locale('ko')
+dayjs.extend(relativeTime);
 
 const PostContent = () => {
+  const target = {
+    user: {
+      id: "rkdrrkak",
+      nickname: "rkdrrkak",
+      image: "/images/example.jpg",
+    },
+    content: "안뇽하세용",
+    createAt: new Date(),
+    images: ["/images/example.jpg"],
+  };
+
   return (
     <StyledPostContent>
       <UserImage />
       <ContentsInfo>
-        <h3>강혜원입니다</h3>
-        <span>안뇽하세요</span>
-        <div>
+        <UserId>{target.user.id}</UserId>
+        <UserNickname>@{target.user.nickname}</UserNickname>
+        <CreateAt>ㆍ{dayjs(target.createAt).fromNow(true)}</CreateAt>
+        <div>{target.content}</div>
+        <ImageWrapper>
           <Image
-            src={"/images/example.jpg"}
+            src={target.images[0]}
             alt="contents image"
             width={516}
             height={638}
           />
-        </div>
+        </ImageWrapper>
+        <ActionButtons/>
       </ContentsInfo>
     </StyledPostContent>
   );
@@ -38,24 +59,34 @@ const UserImage = styled.div`
 `;
 
 const ContentsInfo = styled.div`
-  h3 {
-    margin-bottom: 2px;
-    font-size: 15px;
-    font-weight: 700;
-  }
+  font-size: 15px;
+  font-weight: 400;
+`;
 
-  span {
-    font-size: 15px;
-    font-weight: 400;
-  }
+const UserId = styled.span`
+  margin-bottom: 2px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-right: 5px;
+`;
 
-  div {
-    width: 100%;
-    height: 432px;
-    margin-top: 12px;
-    border-radius: 16px;
-    overflow: hidden;
-  }
+const UserNickname = styled.span`
+  font-size: 15px;
+  color: rgb(113, 118, 123);
+  margin-right: 5px;
+`;
+
+const CreateAt = styled.span`
+  font-size: 15px;
+  color: rgb(113, 118, 123);
+`;
+
+const ImageWrapper = styled.div`
+  width: 100%;
+  height: 432px;
+  margin-top: 12px;
+  border-radius: 16px;
+  overflow: hidden;
 `;
 
 export default PostContent;
