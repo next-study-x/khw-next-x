@@ -27,40 +27,40 @@ export const HOME_DATA: { [key: string]: MenuData } = {
     name: "Explore",
     icon: SearchIcon,
   },
-  notification: {
-    name: "Notification",
-    icon: NotificationsNoneIcon,
-  },
+  // notification: {
+  //   name: "Notification",
+  //   icon: NotificationsNoneIcon,
+  // },
   message: {
     name: "Message",
     icon: MailOutlineIcon,
   },
-  grok: {
-    name: "Grok",
-    icon: LaunchIcon,
-  },
-  bookmarks: {
-    name: "Bookmarks",
-    icon: BookmarkBorderIcon,
-  },
-  communities: {
-    name: "Communities",
-    icon: PeopleIcon,
-  },
-  premium: {
-    name: "Premium",
-    icon: ClearIcon,
-  },
-  verifiedOrgs: {
-    name: "Verified Orgs",
-    icon: BoltIcon,
-  },
+  // grok: {
+  //   name: "Grok",
+  //   icon: LaunchIcon,
+  // },
+  // bookmarks: {
+  //   name: "Bookmarks",
+  //   icon: BookmarkBorderIcon,
+  // },
+  // communities: {
+  //   name: "Communities",
+  //   icon: PeopleIcon,
+  // },
+  // premium: {
+  //   name: "Premium",
+  //   icon: ClearIcon,
+  // },
+  // verifiedOrgs: {
+  //   name: "Verified Orgs",
+  //   icon: BoltIcon,
+  // },
   profile: {
     name: "Profile",
     icon: PersonIcon,
   },
-  more: {
-    name: "More",
-    icon: MoreHorizIcon,
-  },
+  // more: {
+  //   name: "More",
+  //   icon: MoreHorizIcon,
+  // },
 };
