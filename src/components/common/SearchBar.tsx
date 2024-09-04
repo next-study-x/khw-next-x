@@ -2,18 +2,19 @@
 
 import styled from "@emotion/styled";
 import SearchIcon from "@mui/icons-material/Search";
-import { useState } from "react";
+import React, { useState } from "react";
 
 interface SearchBarProps {
-  isActive: boolean;
+  isActive?: boolean;
+  width?: string;
 }
 
-const SearchBar = () => {
+const SearchBar: React.FC<SearchBarProps> = ({ width }) => {
   const [searchValue, setSearchValue] = useState("");
   const [isActive, setIsActive] = useState(false);
 
   return (
-    <StyledSearchBar isActive={isActive}>
+    <StyledSearchBar isActive={isActive} width={width}>
       <SearchIcon />
       <input
         placeholder="search"
@@ -27,7 +28,7 @@ const SearchBar = () => {
 };
 
 const StyledSearchBar = styled.div<SearchBarProps>`
-  width: 350px;
+  width: ${({ width }) => width || "350px"};
   height: 44px;
   display: flex;
   align-items: center;

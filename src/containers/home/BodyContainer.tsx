@@ -30,7 +30,6 @@ const BodyWrapper = styled.div`
   border-left: 1px solid rgb(47, 51, 54);
   border-right: 1px solid rgb(47, 51, 54);
   margin-top: 53px;
-
 `;
 
 export default BodyContainer;

@@ -1,7 +1,7 @@
 "use client";
 
 import HeaderContainer from "@/containers/home/HeaderContainer";
-import SearchContainer from "@/containers/home/SearchContainer";
+import RightContainer from "@/containers/home/RightContainer";
 import styled from "@emotion/styled";
 
 export default function AfterLoginLayout({
@@ -18,7 +18,7 @@ export default function AfterLoginLayout({
       </HeaderFixed>
       <BodyStyled>
         <main>{children}</main>
-        <SearchContainer />
+        <RightContainer />
       </BodyStyled>
       {modal}
     </LayoutStyled>

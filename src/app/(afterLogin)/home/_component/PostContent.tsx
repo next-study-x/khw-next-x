@@ -48,7 +48,7 @@ const StyledPostContent = styled.article`
   padding: 12px 16px;
   display: flex;
   gap: 8px;
-  border: 1px solid rgb(47, 51, 54);
+  border-top: 1px solid rgb(47, 51, 54);
 `;
 
 const UserImage = styled.div`
