@@ -6,8 +6,10 @@ import styled from "@emotion/styled";
 
 export default function AfterLoginLayout({
   children,
+  modal
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <LayoutStyled>
@@ -18,6 +20,7 @@ export default function AfterLoginLayout({
         <main>{children}</main>
         <SearchContainer />
       </BodyStyled>
+      {modal}
     </LayoutStyled>
   );
 }

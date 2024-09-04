@@ -1,12 +1,21 @@
 "use client";
 
 import MenuTab from "@/app/(afterLogin)/home/_component/MenuTab";
+import Button from "@/components/common/Button";
 import { HOME_DATA } from "@/constants/home_data";
+import { useRouter } from "next/navigation";
 
 import styled from "@emotion/styled";
 import Image from "next/image";
 
 const HeaderContainer = () => {
+  const router = useRouter();
+
+  const handlePushRouter = (path: string) => {
+    router.push(path);
+  };
+
+
   return (
     <HeaderWrapper>
       <LogoWrapper>
@@ -15,10 +24,11 @@ const HeaderContainer = () => {
       <MenuWrapper>
         <ul>
           {Object.keys(HOME_DATA).map((key) => (
-            <MenuTab menu={HOME_DATA[key]} />
+            <MenuTab key={key} menu={HOME_DATA[key]} />
           ))}
         </ul>
       </MenuWrapper>
+      <Button type='fill' onClick={() => handlePushRouter('/compose/tweet')}>Post</Button>
       <UserInfoWrapper></UserInfoWrapper>
     </HeaderWrapper>
   );
@@ -42,6 +52,7 @@ const LogoWrapper = styled.div`
 
 const MenuWrapper = styled.div`
   width: 100%;
+  margin-bottom: 16px;
 
   ul {
     padding-top: 4px;
