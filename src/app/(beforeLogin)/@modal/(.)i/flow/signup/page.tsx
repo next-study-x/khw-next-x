@@ -17,7 +17,7 @@ export default function Page() {
       title="계정을 생성하세요"
       bodySize="md"
       footerChildren={
-        <Button>
+        <Button size='full'>
           <span>다음</span>
         </Button>
       }

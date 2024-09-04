@@ -11,7 +11,7 @@ export default function Page() {
       title="내 X 계정 찾기"
       bodySize="md"
       footerChildren={
-        <Button>
+        <Button size='full'>
           <span>다음</span>
         </Button>
       }

@@ -4,18 +4,24 @@ import React, { ReactNode } from "react";
 interface ButtonProps {
   type?: "default" | "fill" | "border" | "whiteBorder";
   children: ReactNode;
+  size?: "full";
   sx?: React.CSSProperties;
   onClick?: () => void;
+}
+
+interface ButtonSizeProps {
+  size?: "full";
 }
 
 const Button: React.FC<ButtonProps> = ({
   children,
   type = "default",
+  size,
   sx,
   onClick,
 }) => {
   return (
-    <Box onClick={onClick}>
+    <Box onClick={onClick} size={size}>
       {type === "default" && (
         <DefaultButton style={sx}>{children}</DefaultButton>
       )}
@@ -28,8 +34,8 @@ const Button: React.FC<ButtonProps> = ({
   );
 };
 
-const Box = styled.div`
-  width: 100%;
+const Box = styled.div<ButtonSizeProps>`
+  width: ${({ size }) => (size === "full" ? "100%" : "auto")};
 `;
 
 const DefaultButton = styled.button<ButtonProps>`
