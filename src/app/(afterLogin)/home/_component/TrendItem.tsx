@@ -2,24 +2,29 @@
 
 import styled from "@emotion/styled";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import Link from "next/link";
 
 const TrendItem = () => {
   return (
     <StyledTrendItem>
-      <TrendInfo>
-        <span>Trending in South Korea</span>
-        <div>재결합 소식</div>
-      </TrendInfo>
-      <MoreHorizIcon />
+      <Link href={`/search?q='트렌드`}>
+        <TrendInfo>
+          <span>Trending in South Korea</span>
+          <div>재결합 소식</div>
+        </TrendInfo>
+        <MoreHorizIcon />
+      </Link>
     </StyledTrendItem>
   );
 };
 
 // item
 const StyledTrendItem = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 12px 0;
+  a {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+  }
 `;
 
 const TrendInfo = styled.div`

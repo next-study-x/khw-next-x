@@ -7,9 +7,10 @@ import React, { useState } from "react";
 interface SearchBarProps {
   isActive?: boolean;
   width?: string;
+  q?: string;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ width }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ width, q }) => {
   const [searchValue, setSearchValue] = useState("");
   const [isActive, setIsActive] = useState(false);
 
