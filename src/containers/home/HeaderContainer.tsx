@@ -9,6 +9,12 @@ import MenuTab from "@/app/(afterLogin)/home/_component/MenuTab";
 import Button from "@/components/common/Button";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
+const user = {
+  id: "kanghyew0n",
+  nickname: "rkdrrkak",
+  image: "/images/example.jpg",
+};
+
 const HeaderContainer = () => {
   const router = useRouter();
 
@@ -34,8 +40,8 @@ const HeaderContainer = () => {
       <UserInfoWrapper>
         <UserImage />
         <UserInfo>
-          <UserName>kanghyew0n</UserName>
-          <UserNickName>@rkdrrkak</UserNickName>
+          <UserName>{user.id}</UserName>
+          <UserNickName>@{user.nickname}</UserNickName>
         </UserInfo>
         <MoreButton>
           <MoreHorizIcon />

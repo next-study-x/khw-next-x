@@ -3,16 +3,16 @@ import Image from "next/image";
 import styled from "@emotion/styled";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import 'dayjs/locale/ko'
+import "dayjs/locale/ko";
 import ActionButtons from "./ActionButtons";
 
-dayjs.locale('ko')
+dayjs.locale("ko");
 dayjs.extend(relativeTime);
 
 const PostContent = () => {
   const target = {
     user: {
-      id: "rkdrrkak",
+      id: "kanghyew0n",
       nickname: "rkdrrkak",
       image: "/images/example.jpg",
     },
@@ -37,7 +37,7 @@ const PostContent = () => {
             height={638}
           />
         </ImageWrapper>
-        <ActionButtons/>
+        <ActionButtons />
       </ContentsInfo>
     </StyledPostContent>
   );

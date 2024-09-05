@@ -7,6 +7,7 @@ import { SvgIconComponent } from "@mui/icons-material";
 
 interface Menu {
   name: string;
+  link: string;
   icon: SvgIconComponent;
 }
 
@@ -20,13 +21,11 @@ interface MenuTabWrapper {
 
 const MenuTab: React.FC<MenuTabProps> = ({ menu }) => {
   const Icon: SvgIconComponent = menu.icon;
-
-  console.log(menu);
   const segment = useSelectedLayoutSegment();
 
   return (
-    <MenuTabWrapper isActive={segment === menu.name.toLowerCase()}>
-      <Link href={`/${menu.name.toLowerCase()}`}>
+    <MenuTabWrapper isActive={segment === menu.link}>
+      <Link href={`/${menu.link}`}>
         <Icon />
         <span>{menu.name}</span>
       </Link>
