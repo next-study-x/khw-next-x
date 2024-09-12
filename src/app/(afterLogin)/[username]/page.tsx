@@ -2,8 +2,8 @@
 
 import Button from "@/components/common/Button";
 import styled from "@emotion/styled";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import PostContent from "../home/_component/PostContent";
+import Post from "../home/_component/Post";
+import BackButton from "../home/_component/BackButton";
 
 export default function Page() {
   const user = {
@@ -15,7 +15,7 @@ export default function Page() {
   return (
     <BodyWrapper>
       <TopWrapper>
-        <ArrowBackIcon />
+       <BackButton/>
         <h3>{user.id}</h3>
       </TopWrapper>
       <UserWrapper>
@@ -28,8 +28,8 @@ export default function Page() {
         </UserInfo>
         <Button type="whiteBorder">Edit Profile</Button>
       </UserWrapper>
-      <PostContent />
-      <PostContent />
+      <Post />
+      <Post />
     </BodyWrapper>
   );
 }

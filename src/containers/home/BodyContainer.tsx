@@ -2,7 +2,7 @@
 
 import Tab from "@/app/(afterLogin)/home/_component/Tab";
 import TabProvider from "@/app/(afterLogin)/home/_component/TabProvider";
-import PostContent from "@/app/(afterLogin)/home/_component/PostContent";
+import Post from "@/app/(afterLogin)/home/_component/Post";
 import styled from "@emotion/styled";
 import PostForm from "@/app/(afterLogin)/home/_component/PostForm";
 
@@ -12,13 +12,13 @@ const BodyContainer = () => {
       <TabProvider>
         <Tab />
         <PostForm/>
-        <PostContent />
-        <PostContent />
-        <PostContent />
-        <PostContent />
-        <PostContent />
-        <PostContent />
-        <PostContent />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
       </TabProvider>
     </BodyWrapper>
   );

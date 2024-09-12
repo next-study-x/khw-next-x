@@ -2,9 +2,9 @@
 
 import SearchBar from "@/components/common/SearchBar";
 import styled from "@emotion/styled";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Tab from "./_component/Tab";
-import PostContent from "../home/_component/PostContent";
+import Post from "../home/_component/Post";
+import BackButton from "../home/_component/BackButton";
 
 interface Props {
   searchParams: { q: string; f?: string; pf?: string };
@@ -16,15 +16,15 @@ export default function Page({ searchParams }: Props) {
     <BodyWrapper>
       <FixedWrapper>
         <Flex>
-          <ArrowBackIcon />
+         <BackButton/>
           <SearchBar width="520px" q={searchParams.q} />
         </Flex>
         <Tab />
       </FixedWrapper>
       <PostWrapper>
-        <PostContent/>
-        <PostContent/>
-        <PostContent/>
+        <Post/>
+        <Post/>
+        <Post/>
       </PostWrapper>
     </BodyWrapper>
   );

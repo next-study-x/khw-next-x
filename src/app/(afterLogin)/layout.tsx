@@ -6,7 +6,7 @@ import styled from "@emotion/styled";
 
 export default function AfterLoginLayout({
   children,
-  modal
+  modal,
 }: {
   children: React.ReactNode;
   modal: React.ReactNode;
@@ -44,4 +44,8 @@ const BodyStyled = styled.main`
   height: 100%;
   display: flex;
   justify-content: space-between;
+
+  > main {
+    width: 100%;
+  }
 `;
