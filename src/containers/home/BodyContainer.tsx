@@ -11,7 +11,7 @@ const BodyContainer = () => {
     <BodyWrapper>
       <TabProvider>
         <Tab />
-        <PostForm/>
+        <PostForm />
         <Post />
         <Post />
         <Post />

@@ -1,3 +1,5 @@
+"use client";
+
 import React, { MouseEventHandler } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,63 +10,51 @@ import "dayjs/locale/ko";
 import ActionButtons from "./ActionButtons";
 import PostArticle from "./PostArticle";
 import { faker } from "@faker-js/faker";
+import PostImages from "./PostImages";
 
 dayjs.locale("ko");
 dayjs.extend(relativeTime);
 
-const target = {
-  postId: 1,
-  user: {
-    id: "kanghyew0n",
-    nickname: "rkdrrkak",
-    image: "/images/example.jpg",
-  },
-  content: "안뇽하세용",
-  createAt: new Date(),
-  images: [] as any[],
-};
-
 type Props = {
-  noImage?: boolean;
-};
+  noImage?: boolean
+}
 
 const Post = ({ noImage }: Props) => {
   const stopPropagation: MouseEventHandler<HTMLAnchorElement> = (e) => {
     e.stopPropagation();
   };
-
+  const target = {
+    postId: 1,
+    User: {
+      id: 'elonmusk',
+      nickname: 'Elon Musk',
+      image: '/yRsRRjGO.jpg',
+    },
+    content: '클론코딩 라이브로 하니 너무 힘들어요 ㅠㅠ',
+    createdAt: new Date(),
+    Images: [] as any[],
+  }
   if (Math.random() > 0.5 && !noImage) {
-    target.images.push(
-      { imageId: 1, link: faker.image.urlLoremFlickr() },
-      { imageId: 2, link: faker.image.urlLoremFlickr() },
-      { imageId: 3, link: faker.image.urlLoremFlickr() },
-      { imageId: 4, link: faker.image.urlLoremFlickr() }
-    );
+    target.Images.push(
+      {imageId: 1, link: faker.image.urlLoremFlickr()},
+      {imageId: 2, link: faker.image.urlLoremFlickr()},
+      {imageId: 3, link: faker.image.urlLoremFlickr()},
+      {imageId: 4, link: faker.image.urlLoremFlickr()},
+    )
   }
 
   return (
     <PostArticle post={target}>
       <UserImage />
       <ContentsInfo>
-        <Link href={`/${target.user.id}`} onClick={stopPropagation}>
-          <UserId>{target.user.id}</UserId>
+        <Link href={`/${target.User.id}`} onClick={stopPropagation}>
+          <UserId>{target.User.id}</UserId>
         </Link>
-        <UserNickname>@{target.user.nickname}</UserNickname>
-        <CreateAt>ㆍ{dayjs(target.createAt).fromNow(true)}</CreateAt>
+        <UserNickname>@{target.User.nickname}</UserNickname>
+        <CreateAt>ㆍ{dayjs(target.createdAt).fromNow(true)}</CreateAt>
         <div>{target.content}</div>
-        {target.images && target.images.length > 0 && (
-          <Link
-            href={`/${target.user.id}/status/${target.postId}/photo/${target.images[0].imageId}`}
-          >
-            <ImageWrapper>
-              <img
-                src={target.images[0]?.link || "/images/example.jpg"}
-                alt="contents image"
-              />
-            </ImageWrapper>
-          </Link>
-        )}
-
+        
+            <PostImages post={target} />
         <ActionButtons />
       </ContentsInfo>
     </PostArticle>
@@ -100,18 +90,6 @@ const UserNickname = styled.span`
 const CreateAt = styled.span`
   font-size: 15px;
   color: rgb(113, 118, 123);
-`;
-
-const ImageWrapper = styled.div`
-  width: 100%;
-  margin-top: 12px;
-  border-radius: 16px;
-  overflow: hidden;
-
-  img {
-    width: 100%;
-    object-fit: cover;
-  }
 `;
 
 export default Post;

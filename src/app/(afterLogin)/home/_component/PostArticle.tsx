@@ -1,19 +1,19 @@
+import React from "react";
 import styled from "@emotion/styled";
 import { useRouter } from "next/navigation";
-import React from "react";
 
 type Props = {
   children: React.ReactNode;
   post: {
     postId: number;
     content: string;
-    user: {
+    User: {
       id: string;
       nickname: string;
       image: string;
     };
-    createAt: Date;
-    images: any[];
+    createdAt: Date;
+    Images: any[];
   };
 };
 
@@ -21,10 +21,10 @@ export default function PostArticle({ children, post }: Props) {
   const router = useRouter();
 
   const onClick = () => {
-    router.push(`/${post.user.id}/status/${post.postId}`);
+    router.push(`/${post.User.id}/status/${post.postId}`);
   };
 
-  return <StyledPost onClick={onClick}>{children}</StyledPost>;
+  return <StyledPost onClickCapture={onClick}>{children}</StyledPost>;
 }
 
 const StyledPost = styled.article`
