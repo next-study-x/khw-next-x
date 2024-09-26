@@ -2,12 +2,15 @@
 
 import Image from "next/image";
 import styled from "@emotion/styled";
+import { css } from "@emotion/react";
+
 import { useRouter } from "next/navigation";
 import { HOME_DATA } from "@/constants/home_data";
 
 import MenuTab from "@/app/(afterLogin)/home/_component/MenuTab";
 import Button from "@/components/common/Button";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import BorderColorIcon from "@mui/icons-material/BorderColor";
 
 const user = {
   id: "kanghyew0n",
@@ -34,7 +37,8 @@ const HeaderContainer = () => {
           ))}
         </ul>
         <Button type="fill" onClick={() => handlePushRouter("/compose/tweet")}>
-          Post
+          <span>Post</span>
+          <BorderColorIcon />
         </Button>
       </MenuWrapper>
       <UserInfoWrapper>
@@ -54,7 +58,7 @@ const HeaderContainer = () => {
 const HeaderWrapper = styled.header`
   position: fixed;
   top: 0;
-  width: 275px;
+  width: 100%;
   height: 100%;
   padding-right: 8px;
   padding-left: 8px;
@@ -78,6 +82,23 @@ const MenuWrapper = styled.div`
   ul {
     padding-top: 4px;
     padding-bottom: 4px;
+  }
+
+  button > svg {
+    display: none;
+  }
+
+  @media (max-width: 1300px) {
+    width: 50px;
+    span {
+      display: none;
+    }
+    button {
+      width: auto;
+    }
+    button > svg {
+      display: block;
+    }
   }
 `;
 
@@ -107,6 +128,9 @@ const UserInfo = styled.div`
   margin-left: 12px;
   margin-right: 12px;
   flex: 1;
+  @media (max-width: 1300px) {
+    display: none;
+  }
 `;
 
 const UserName = styled.div`
@@ -119,6 +143,10 @@ const UserNickName = styled.div`
   color: rgb(113, 118, 123);
 `;
 
-const MoreButton = styled.div``;
+const MoreButton = styled.div`
+  @media (max-width: 1300px) {
+    display: none;
+  }
+`;
 
 export default HeaderContainer;

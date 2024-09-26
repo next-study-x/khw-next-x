@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import React, { ReactNode } from "react";
+import { SerializedStyles } from "@emotion/react";
 
 interface ButtonProps {
   type?: "default" | "fill" | "border" | "whiteBorder";

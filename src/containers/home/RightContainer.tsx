@@ -5,7 +5,6 @@ import FixedSearchBar from "@/app/(afterLogin)/home/_component/FixedSearchBar";
 import TrendsSection from "@/app/(afterLogin)/home/_component/TrendsSection";
 import FollowRecommend from "@/app/(afterLogin)/home/_component/FollowRecommend";
 
-
 const RightContainer = () => {
   return (
     <RightContainerWrapper>
@@ -19,6 +18,10 @@ const RightContainer = () => {
 };
 
 const RightContainerWrapper = styled.div`
+  @media (max-width: 1024px) {
+    display: none;
+  }
+
   position: sticky;
   top: 0;
   width: 350px;

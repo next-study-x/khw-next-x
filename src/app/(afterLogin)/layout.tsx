@@ -17,7 +17,7 @@ export default function AfterLoginLayout({
         <HeaderContainer />
       </HeaderFixed>
       <BodyStyled>
-        <main>{children}</main>
+        {children}
         <RightContainer />
       </BodyStyled>
       {modal}
@@ -36,6 +36,10 @@ const LayoutStyled = styled.div`
 const HeaderFixed = styled.div`
   width: 275px;
   height: 100%;
+
+  @media (max-width: 1300px) {
+   width: 80px;
+  }
 `;
 
 const BodyStyled = styled.main`
@@ -45,6 +49,9 @@ const BodyStyled = styled.main`
   display: flex;
   justify-content: space-between;
 
+  @media (max-width: 1024px) {
+    width: 660px;
+  }
   > main {
     width: 100%;
   }
