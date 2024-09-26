@@ -1,13 +1,12 @@
-'use client'
-
-import styled from "@emotion/styled";
+import Post from "@/app/(afterLogin)/_component/Post";
 import CommentForm from "@/app/(afterLogin)/[username]/status/[id]/_component/CommentForm";
-import ActionButtons from "@/app/(afterLogin)/home/_component/ActionButtons";
-import BackButton from "@/app/(afterLogin)/home/_component/BackButton";
-import Post from "@/app/(afterLogin)/home/_component/Post";
+import ActionButtons from "@/app/(afterLogin)/_component/ActionButtons";
+import style from './photoModal.module.css';
+import PhotoModalCloseButton
+  from "@/app/(afterLogin)/@modal/[username]/status/[id]/photo/[photoId]/_component/PhotoModalCloseButton";
 import {faker} from "@faker-js/faker";
 
-export default function PhotoModal() {
+export default function Default() {
   const photo = {
     imageId: 1,
     link: faker.image.urlLoremFlickr(),
@@ -16,19 +15,19 @@ export default function PhotoModal() {
     }
   }
   return (
-    <Container>
-      <BackButton />
-      <ImageZone>
+    <div className={style.container}>
+      <PhotoModalCloseButton />
+      <div className={style.imageZone}>
         <img src={photo.link} alt={photo.Post?.content} />
-        <Image style={{backgroundImage: `url(${photo.link})`}} />
-        <ButtonZone>
-          <ButtonInner>
-            <ActionButtons />
-          </ButtonInner>
-        </ButtonZone>
-      </ImageZone>
-      <CommentInner>
-        <Post noImage/>
+        <div className={style.image} style={{backgroundImage: `url(${photo.link})`}} />
+        <div className={style.buttonZone}>
+          <div className={style.buttonInner}>
+            <ActionButtons white />
+          </div>
+        </div>
+      </div>
+      <div className={style.commentZone}>
+        <Post noImage />
         <CommentForm />
         <Post />
         <Post />
@@ -37,54 +36,7 @@ export default function PhotoModal() {
         <Post />
         <Post />
         <Post />
-      </CommentInner>
-    </Container>
+      </div>
+    </div>
   );
 }
-
-const Container = styled.div`
-   background-color: rgba(0, 0, 0, 0.95);
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    width: 100dvw;
-    height: 100dvh;
-    display: flex;
-    flex-direction: row;
-`
-
-const ImageZone = styled.div`
-   flex: 1;
-    display: flex;
-    flex-direction: column;
-
-    img {
-      display: none;
-    }
-`
-
-const Image = styled.div`
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    flex: 1;
-`
-
-const ButtonZone = styled.div`
-  display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-`
-
-const ButtonInner = styled.div`
-   width: 600px;
-   height: 60px;
-`
-
-const CommentInner =styled.div`
-    width: 350px;
-    border-left: 1px solid rgb(47, 51, 54);
-    overflow: auto;
-`
