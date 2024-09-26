@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "mock": "npx tsx watch ./src/mocks/http.ts"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -20,10 +21,21 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@mswjs/http-middleware": "^0.10.1",
     "@svgr/webpack": "^8.1.0",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "msw": "^2.4.9",
     "typescript": "^5"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
