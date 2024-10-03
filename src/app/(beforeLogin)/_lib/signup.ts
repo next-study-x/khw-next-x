@@ -20,7 +20,6 @@ export default async (prevState: any, formData: FormData) => {
   }
   let shouldRedirect = false;
   try {
-    console.log('here')
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/users`,
       {
@@ -35,7 +34,6 @@ export default async (prevState: any, formData: FormData) => {
     }
     console.log(await response.json());
 
-    console.log("res");
     shouldRedirect = true;
   } catch (err) {
     console.error(err);
@@ -43,7 +41,6 @@ export default async (prevState: any, formData: FormData) => {
   }
 
   if (shouldRedirect) {
-    console.log("here");
     redirect("/home"); // try/catch문 안에서 X
   }
 };
