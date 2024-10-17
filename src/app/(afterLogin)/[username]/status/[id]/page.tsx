@@ -1,36 +1,28 @@
-"use client";
-
-import BackButton from "@/app/(afterLogin)/home/_component/BackButton";
-import Post from "@/app/(afterLogin)/home/_component/Post";
-import styled from "@emotion/styled";
-import CommentForm from "./_component/CommentForm";
+import BackButton from "@/app/(afterLogin)/_component/BackButton";
+import style from './singlePost.module.css';
+import Post from "@/app/(afterLogin)/_component/Post";
+import CommentForm from "@/app/(afterLogin)/[username]/status/[id]/_component/CommentForm";
 
 export default function SinglePost() {
   return (
-    <BodyWrapper>
-      <TopWrapper>
-        <BackButton />
-        <h3>게시하기</h3>
-      </TopWrapper>
+    <div className={style.main}>
+      <div className={style.header}>
+        <BackButton/>
+        <h3 className={style.headerTitle}>게시하기</h3>
+      </div>
       <Post />
-      <CommentForm/>
-    </BodyWrapper>
-  );
+      <CommentForm />
+      <div>
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+      </div>
+    </div>
+  )
 }
-
-const BodyWrapper = styled.main`
-  max-width: 600px;
-  min-height: 100vh;
-  width: 600px;
-  border-left: 1px solid rgb(47, 51, 54);
-  border-right: 1px solid rgb(47, 51, 54);
-  padding-top: 12px;
-`;
-
-const TopWrapper = styled.nav`
-  height: 53px;
-  padding: 16px;
-
-  display: flex;
-  gap: 12px;
-`;

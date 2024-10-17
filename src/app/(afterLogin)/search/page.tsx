@@ -1,64 +1,40 @@
-"use client";
+import style from './search.module.css';
+import BackButton from "@/app/(afterLogin)/_component/BackButton";
+import SearchForm from "@/app/(afterLogin)/_component/SearchForm";
+import Tab from "@/app/(afterLogin)/search/_component/Tab";
+import Post from "@/app/(afterLogin)/_component/Post";
 
-import SearchBar from "@/components/common/SearchBar";
-import styled from "@emotion/styled";
-import Tab from "./_component/Tab";
-import Post from "../home/_component/Post";
-import BackButton from "../home/_component/BackButton";
-
-interface Props {
-  searchParams: { q: string; f?: string; pf?: string };
+type Props = {
+  searchParams: { q: string, f?: string, pf?: string };
 }
-
-
-export default function Page({ searchParams }: Props) {
+export default function Search({ searchParams }: Props) {
   return (
-    <BodyWrapper>
-      <FixedWrapper>
-        <Flex>
-         <BackButton/>
-          <SearchBar width="520px" q={searchParams.q} />
-        </Flex>
-        <Tab />
-      </FixedWrapper>
-      <PostWrapper>
-        <Post/>
-        <Post/>
-        <Post/>
-      </PostWrapper>
-    </BodyWrapper>
-  );
+    <main className={style.main}>
+      <div className={style.searchTop}>
+        <div className={style.searchZone}>
+          <div className={style.buttonZone}>
+            <BackButton/>
+          </div>
+          <div className={style.formZone}>
+            <SearchForm q={searchParams.q} />
+          </div>
+        </div>
+        <Tab/>
+      </div>
+      <div className={style.list}>
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        {/*<SearchResult searchParams={searchParams} />*/}
+      </div>
+    </main>
+  )
 }
-
-const BodyWrapper = styled.div`
-  max-width: 600px;
-  min-height: 100vh;
-  width: 600px;
-  border-left: 1px solid rgb(47, 51, 54);
-  border-right: 1px solid rgb(47, 51, 54);
-  padding-top: 119px;
-  overflow: hidden;
-
-  h1 {
-    margin-top: 24px;
-  }
-`;
-
-const FixedWrapper = styled.div`
-  position: fixed;
-  width: 598px;
-  top: 0px;
-  background-color: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(12px);
-`;
-
-const Flex = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  padding: 16px 16px 6px 16px;
-`;
-
-const PostWrapper = styled.div`
-  
-`
